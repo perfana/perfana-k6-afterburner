@@ -183,17 +183,12 @@
         </profile>
 
         <profile>
-            <id>test-env-acc</id>
+            <id>test-env-demo</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <server_name>optimus-prime-fe</server_name>
-                <port>8080</port>
-                <testEnvironment>jmeter-acc</testEnvironment>
-                <perfanaUrl>http://perfana:3000</perfanaUrl>
-                <wiremockUrl>http://wiremock:8080</wiremockUrl>
-                <influxDbUrl>influxdb</influxDbUrl>
+                <testEnvironment>k6-acc</testEnvironment>
             </properties>
         </profile>
 
@@ -223,18 +218,15 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <workload>jmeter-loadTest</workload>
+                <workload>k6-loadTest</workload>
                 <duration>600</duration>
-                <startRate>50</startRate>
+                <startRate>1</startRate>
                 <targetRate>50</targetRate>
                 <rampUpTime>120</rampUpTime>
                 <perfanaEnabled>true</perfanaEnabled>
                 <testRunId>${systemUnderTest}-${version}-${workload}-${testEnvironment}-${build.timestamp}</testRunId>
                 <eventsEnabled>true</eventsEnabled>
-                <eventScheduleScript>
-                    PT0S|wiremock-change-delay(delay=400)|delay=400
-                </eventScheduleScript>
-                <tags>jmeter</tags>
+                <tags>k6</tags>
             </properties>
         </profile>
 
