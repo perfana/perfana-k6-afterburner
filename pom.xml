@@ -192,7 +192,7 @@
                 <workload>k6-stressTest</workload>
                 <duration>1</duration>
                 <startRate>1</startRate>
-                <targetRate>500</targetRate>
+                <targetRate>250</targetRate>
                 <rampUpTime>900</rampUpTime>
                 <perfanaEnabled>true</perfanaEnabled>
                 <testRunId>${systemUnderTest}-${version}-${workload}-${testEnvironment}-${build.timestamp}</testRunId>
