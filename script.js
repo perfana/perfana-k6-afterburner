@@ -40,7 +40,7 @@ export const options = {
             startRate: __ENV.START_RATE,
             timeUnit: '1s',
             preAllocatedVUs: 50,
-            maxVUs: 1000,
+            // maxVUs: 1000,
             stages: [
                 { target: __ENV.TARGET_RATE, duration: "30s" },
                 { target: __ENV.TARGET_RATE, duration: "900s" },
