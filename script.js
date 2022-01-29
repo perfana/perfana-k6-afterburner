@@ -15,7 +15,7 @@
 import http from "k6/http";
 import { group, check, sleep } from "k6";
 
-const BASE_URL = "https://demo-optimus-prime-fe.perfana.io";
+const BASE_URL = "${__ENV.TARGET_BASE_URL}";
 // Sleep duration between successive requests.
 // You might want to edit the value of this variable or remove calls to the sleep function on the script.
 const SLEEP_DURATION = 0.1;
@@ -38,7 +38,7 @@ scenarios: {
     },
 },
 };
-  
+
 
 export default function() {
     // group("/memory/churn", () => {
