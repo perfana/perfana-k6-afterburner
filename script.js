@@ -99,7 +99,7 @@ export default function() {
     // });
 
     group("/mind-my-business-s", () => {
-        let duration = '500'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let duration = '250'; // specify value as there is no example value for this parameter in OpenAPI spec
 
         // Request No. 1
         {
@@ -146,7 +146,7 @@ export default function() {
     // });
 
     group("/delay", () => {
-        let duration = '1000'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let duration = '350'; // specify value as there is no example value for this parameter in OpenAPI spec
 
         // Request No. 1
         {
@@ -160,7 +160,7 @@ export default function() {
     });
 
     group("/secured-delay", () => {
-        let duration = '1500'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let duration = '200'; // specify value as there is no example value for this parameter in OpenAPI spec
 
         // Request No. 1
         {
