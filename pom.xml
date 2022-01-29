@@ -14,7 +14,7 @@
 
         <!-- dependency versioning -->
         <events-scheduler-maven-plugin.version>2.0.0</events-scheduler-maven-plugin.version>
-        <test-events-command-runner.version>1.0.0</test-events-command-runner.version>
+        <test-events-command-runner.version>1.0.1</test-events-command-runner.version>
         <perfana-java-client.version>1.6.0</perfana-java-client.version>
         <test-events-wiremock.version>1.1.1</test-events-wiremock.version>
 
@@ -132,7 +132,7 @@
                         <eventConfigs>
                             <eventConfig implementation="io.perfana.events.commandrunner.CommandRunnerEventConfig">
                                 <name>CommandRunnerEventSleep1</name>
-                                <command>docker run -i loadimpact/k6 run - &lt;script.js --out influxdb=${influxDbUrl} -e CONSTANT_LOAD_TIME=${constantLoadTimeInSeconds}s -e RAMPUP_TIME=${rampUpTimeInSeconds}s -e START_RATE=${startRate} -e TARGET_RATE=${targetRate} -e TARGET_BASE_URL=${targetBaseUrl}</command>
+                                <command>k6 run script.js --out influxdb=${influxDbUrl} -e CONSTANT_LOAD_TIME=${constantLoadTimeInSeconds}s -e RAMPUP_TIME=${rampupTimeInSeconds}s -e START_RATE=${startRate} -e TARGET_RATE=${targetRate} -e TARGET_BASE_URL=${targetBaseUrl}</command>
                             </eventConfig>
 
                         </eventConfigs>

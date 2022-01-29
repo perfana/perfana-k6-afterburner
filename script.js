@@ -27,13 +27,13 @@ discardResponseBodies: true,
 scenarios: {
     afterburner: {
         executor: 'ramping-arrival-rate',
-        startRate: ${__ENV.START_RATE},
+        startRate: __ENV.START_RATE,
         timeUnit: '1s',
         preAllocatedVUs: 50,
         maxVUs: 100,
         stages: [
-            { target: ${__ENV.TARGET_RATE}, duration: '${__ENV.RAMPUP_TIME}' },
-            { target: ${__ENV.TARGET_RATE}, duration: '${__ENV.CONSTANT_LOAD_TIME}' },
+            { target: __ENV.TARGET_RATE, duration: "30s" },
+            { target: __ENV.TARGET_RATE, duration: "900s" },
         ],
     },
 },
