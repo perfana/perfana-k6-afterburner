@@ -13,7 +13,7 @@
         <encoding>UTF-8</encoding>
 
         <!-- dependency versioning -->
-        <events-scheduler.version>3.0.2</events-scheduler.version>
+        <events-scheduler-maven-plugin.version>2.0.0</events-scheduler-maven-plugin.version>
         <test-events-command-runner.version>1.0.0-SNAPSHOT</test-events-command-runner.version>
         <perfana-java-client.version>1.6.0</perfana-java-client.version>
         <test-events-wiremock.version>1.1.1</test-events-wiremock.version>
@@ -63,8 +63,8 @@
                 </plugin>
                 <plugin>
                     <groupId>io.perfana</groupId>
-                    <artifactId>event-scheduler</artifactId>
-                    <version>${events-scheduler.version}</version>
+                    <artifactId>event-scheduler-maven-plugin</artifactId>
+                    <version>${events-scheduler-maven-plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -107,7 +107,7 @@
             </plugin>
             <plugin>
                 <groupId>io.perfana</groupId>
-                <artifactId>event-scheduler</artifactId>
+                <artifactId>event-scheduler-maven-plugin</artifactId>
                 <configuration>
                     <eventSchedulerConfig>
                         <debugEnabled>true</debugEnabled>
