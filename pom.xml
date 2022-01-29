@@ -114,7 +114,7 @@
                         <eventConfigs>
                             <eventConfig implementation="io.perfana.events.commandrunner.CommandRunnerEventConfig">
                                 <name>CommandRunnerEventSleep1</name>
-                                <command>docker run -i loadimpact/k6 run - \<script.js --out influxdb=${influxDbUrl} -e CONSTANT_LOAD_TIME=${constantLoadTimeInSeconds}s -e RAMPUP_TIME=${rampUpTimeInSeconds}s -e START_RATE=${startRate} -e TARGET_RATE=${targetRate} -e TARGET_BASE_URL=${targetBaseUrl}</command>
+                                <command>"docker run -i loadimpact/k6 run - <script.js --out influxdb=${influxDbUrl} -e CONSTANT_LOAD_TIME=${constantLoadTimeInSeconds}s -e RAMPUP_TIME=${rampUpTimeInSeconds}s -e START_RATE=${startRate} -e TARGET_RATE=${targetRate} -e TARGET_BASE_URL=${targetBaseUrl}"</command>
                             </eventConfig>
 
                         </eventConfigs>
