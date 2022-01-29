@@ -14,7 +14,7 @@
 
         <!-- dependency versioning -->
         <events-scheduler-maven-plugin.version>2.0.0</events-scheduler-maven-plugin.version>
-        <test-events-command-runner.version>1.0.0</test-events-command-runner.version>
+        <test-events-command-runner.version>1.0.1</test-events-command-runner.version>
         <perfana-java-client.version>1.6.0</perfana-java-client.version>
         <test-events-wiremock.version>1.1.1</test-events-wiremock.version>
 
