@@ -89,23 +89,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>properties-maven-plugin</artifactId>
-                <version>1.0-alpha-2</version>
-                <executions>
-                    <execution>
-                        <id>Generating varfile for the install4j</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>write-active-profile-properties</goal>
-                        </goals>
-                        <configuration>
-                            <outputFile>C:\Dev\out.varfile</outputFile>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>io.perfana</groupId>
                 <artifactId>event-scheduler-maven-plugin</artifactId>
                 <configuration>
@@ -117,24 +100,43 @@
                         <scheduleScript>
                             ${eventScheduleScript}
                         </scheduleScript>
-                        <testConfig>
-                            <systemUnderTest>${systemUnderTest}</systemUnderTest>
-                            <version>${version}</version>
-                            <workload>${workload}</workload>
-                            <testEnvironment>${testEnvironment}</testEnvironment>
-                            <testRunId>${testRunId}</testRunId>
-                            <buildResultsUrl>${buildResultsUrl}</buildResultsUrl>
-                            <rampupTimeInSeconds>${rampupTimeInSeconds}</rampupTimeInSeconds>
-                            <constantLoadTimeInSeconds>${constantLoadTimeInSeconds}</constantLoadTimeInSeconds>
-                            <annotations>${annotations}</annotations>
-                            <tags>${tags}</tags>
-                        </testConfig>
+<!--                        <testConfig>-->
+<!--                            <systemUnderTest>${systemUnderTest}</systemUnderTest>-->
+<!--                            <version>${version}</version>-->
+<!--                            <workload>${workload}</workload>-->
+<!--                            <testEnvironment>${testEnvironment}</testEnvironment>-->
+<!--                            <testRunId>${testRunId}</testRunId>-->
+<!--                            <buildResultsUrl>${buildResultsUrl}</buildResultsUrl>-->
+<!--                            <rampupTimeInSeconds>${rampupTimeInSeconds}</rampupTimeInSeconds>-->
+<!--                            <constantLoadTimeInSeconds>${constantLoadTimeInSeconds}</constantLoadTimeInSeconds>-->
+<!--                            <annotations>${annotations}</annotations>-->
+<!--                            <tags>${tags}</tags>-->
+<!--                        </testConfig>-->
                         <eventConfigs>
                             <eventConfig implementation="io.perfana.events.commandrunner.CommandRunnerEventConfig">
                                 <name>CommandRunnerEventSleep1</name>
                                 <command>k6 run script.js --out influxdb=${influxDbUrl} -e CONSTANT_LOAD_TIME=${constantLoadTimeInSeconds}s -e RAMPUP_TIME=${rampupTimeInSeconds}s -e START_RATE=${startRate} -e TARGET_RATE=${targetRate} -e TARGET_BASE_URL=${targetBaseUrl}</command>
                             </eventConfig>
-
+                            <eventConfig implementation="io.perfana.event.PerfanaEventConfig">
+                                <name>PerfanaEvent</name>
+                                <enabled>${perfanaEnabled}</enabled>
+                                <perfanaUrl>${perfanaUrl}</perfanaUrl>
+                                <apiKey>${apiKey}</apiKey>
+                                <assertResultsEnabled>${assertResultsEnabled}</assertResultsEnabled>
+                                <variables></variables>
+                                <testConfig>
+                                    <systemUnderTest>${systemUnderTest}</systemUnderTest>
+                                    <version>${version}</version>
+                                    <workload>${workload}</workload>
+                                    <testEnvironment>${testEnvironment}</testEnvironment>
+                                    <testRunId>${testRunId}</testRunId>
+                                    <buildResultsUrl>${CIBuildResultsUrl}</buildResultsUrl>
+                                    <rampupTimeInSeconds>${rampupTimeInSeconds}</rampupTimeInSeconds>
+                                    <constantLoadTimeInSeconds>${constantLoadTimeInSeconds}</constantLoadTimeInSeconds>
+                                    <annotations>${annotations}</annotations>
+                                    <tags>${tags}</tags>
+                                </testConfig>
+                            </eventConfig>
                         </eventConfigs>
                     </eventSchedulerConfig>
                 </configuration>
