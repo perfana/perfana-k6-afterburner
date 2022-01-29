@@ -206,10 +206,10 @@
             </activation>
             <properties>
                 <workload>jmeter-loadTest</workload>
-                <duration>7</duration>
+                <duration>600</duration>
                 <startRate>50</startRate>
                 <targetRate>50</targetRate>
-                <rampUpTime>3</rampUpTime>
+                <rampUpTime>120</rampUpTime>
                 <perfanaEnabled>true</perfanaEnabled>
                 <testRunId>${systemUnderTest}-${version}-${workload}-${testEnvironment}-${build.timestamp}</testRunId>
                 <eventsEnabled>true</eventsEnabled>
