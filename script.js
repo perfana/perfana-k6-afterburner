@@ -14,6 +14,14 @@
 
 import http from "k6/http";
 import { group, check, sleep } from "k6";
+import papaparse from './papaparse.js';
+import { SharedArray } from 'k6/data';
+
+
+const firstNames = new SharedArray('another data name', function () {
+    // Load CSV file and parse it using Papa Parse
+    return papaparse.parse(open('./first_names.csv'), { header: true }).data;
+});
 
 const BASE_URL = __ENV.TARGET_BASE_URL;
 
@@ -282,21 +290,38 @@ export default function() {
     //     }
     // });
 
-    // group("/remote/call-many", () => {
-    //     let path = 'TODO_EDIT_THE_PATH'; // specify value as there is no example value for this parameter in OpenAPI spec
-    //     let count = 'TODO_EDIT_THE_COUNT'; // specify value as there is no example value for this parameter in OpenAPI spec
-    //     let type = 'TODO_EDIT_THE_TYPE'; // specify value as there is no example value for this parameter in OpenAPI spec
+    group("/remote/call-many", () => {
+        let path = 'delay'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let count = '3'; // specify value as there is no example value for this parameter in OpenAPI spec
 
-    //     // Request No. 1
-    //     {
-    //         let url = BASE_URL + `/remote/call-many?count=${count}&path=${path}&type=${type}`;
-    //         let request = http.get(url);
+        // Request No. 1
+        {
+            let url = BASE_URL + `/remote/call-many?count=${count}&path=${path}`;
+            let request = http.get(url);
 
-    //         check(request, {
-    //             "OK": (r) => r.status === 200
-    //         });
-    //     }
-    // });
+            check(request, {
+                "OK": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/database", () => {
+        const random = firstNames[Math.floor(Math.random() * firstNames.length)];
+
+        let path = '/db/employee/find-by-name?firstName=${random.first_name}'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        let count = '1'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1
+        {
+            let url = BASE_URL + `/remote/call-many?count=${count}&path=${path}`;
+            let request = http.get(url);
+
+            check(request, {
+                "OK": (r) => r.status === 200
+            });
+        }
+    });
 
     // group("/memory/clear", () => {
 

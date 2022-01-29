@@ -189,13 +189,15 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <workload>stressTest</workload>
+                <workload>k6-stressTest</workload>
                 <duration>1</duration>
-                <targetRate>100</targetRate>
-                <rampUpTime>15</rampUpTime>
+                <startRate>1</startRate>
+                <targetRate>500</targetRate>
+                <rampUpTime>900</rampUpTime>
                 <perfanaEnabled>true</perfanaEnabled>
-                <testRunId>${systemUnderTest}-${version}-${workload}-${testEnvironment}-${build.time}</testRunId>
-                <tags>stress-test</tags>
+                <testRunId>${systemUnderTest}-${version}-${workload}-${testEnvironment}-${build.timestamp}</testRunId>
+                <eventsEnabled>true</eventsEnabled>
+                <tags>k6,micro-service</tags>
             </properties>
         </profile>
 
