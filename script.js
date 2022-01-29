@@ -16,27 +16,35 @@ import http from "k6/http";
 import { group, check, sleep } from "k6";
 
 const BASE_URL = __ENV.TARGET_BASE_URL;
+
 // Sleep duration between successive requests.
 // You might want to edit the value of this variable or remove calls to the sleep function on the script.
 const SLEEP_DURATION = 0.1;
 // Global variables should be initialized.
 
+export const options = {
+};
 
 export const options = {
-discardResponseBodies: true,
-scenarios: {
-    afterburner: {
-        executor: 'ramping-arrival-rate',
-        startRate: __ENV.START_RATE,
-        timeUnit: '1s',
-        preAllocatedVUs: 50,
-        maxVUs: 100,
-        stages: [
-            { target: __ENV.TARGET_RATE, duration: "30s" },
-            { target: __ENV.TARGET_RATE, duration: "900s" },
-        ],
+    discardResponseBodies: true,
+    scenarios: {
+        afterburner: {
+            executor: 'ramping-arrival-rate',
+            startRate: __ENV.START_RATE,
+            timeUnit: '1s',
+            preAllocatedVUs: 50,
+            maxVUs: 100,
+            stages: [
+                { target: __ENV.TARGET_RATE, duration: "30s" },
+                { target: __ENV.TARGET_RATE, duration: "900s" },
+            ],
+        },
     },
-},
+    systemTags: ['proto', 'subproto', 'status', 'method', 'url', 'name', 'group', 'check', 'error', 'error_code', 'tls_version', 'scenario', 'service', 'expected_response', 'rpc_type', 'vu', 'iter'],
+    tags: {
+        system_under_test: __ENV.SYSTEM_UNDER_TEST,
+        test_environment: __ENV.TEST_ENVIRONMENT,
+    }
 };
 
 
