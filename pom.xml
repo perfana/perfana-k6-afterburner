@@ -114,8 +114,9 @@
                         <schedulerEnabled>true</schedulerEnabled>
                         <failOnError>true</failOnError>
                         <continueOnEventCheckFailure>true</continueOnEventCheckFailure>
-                        <eventScheduleScript>
-                        </eventScheduleScript>
+                        <scheduleScript>
+                            ${eventScheduleScript}
+                        </scheduleScript>
                         <testConfig>
                             <systemUnderTest>${systemUnderTest}</systemUnderTest>
                             <version>${version}</version>
