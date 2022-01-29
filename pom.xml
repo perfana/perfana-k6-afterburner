@@ -89,6 +89,23 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0-alpha-2</version>
+                <executions>
+                    <execution>
+                        <id>Generating varfile for the install4j</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>write-active-profile-properties</goal>
+                        </goals>
+                        <configuration>
+                            <outputFile>C:\Dev\out.varfile</outputFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>io.perfana</groupId>
                 <artifactId>event-scheduler</artifactId>
                 <configuration>
@@ -114,7 +131,7 @@
                         <eventConfigs>
                             <eventConfig implementation="io.perfana.events.commandrunner.CommandRunnerEventConfig">
                                 <name>CommandRunnerEventSleep1</name>
-                                <command>"docker run -i loadimpact/k6 run - <script.js --out influxdb=${influxDbUrl} -e CONSTANT_LOAD_TIME=${constantLoadTimeInSeconds}s -e RAMPUP_TIME=${rampUpTimeInSeconds}s -e START_RATE=${startRate} -e TARGET_RATE=${targetRate} -e TARGET_BASE_URL=${targetBaseUrl}"</command>
+                                <command>docker run -i loadimpact/k6 run - &lt;script.js --out influxdb=${influxDbUrl} -e CONSTANT_LOAD_TIME=${constantLoadTimeInSeconds}s -e RAMPUP_TIME=${rampUpTimeInSeconds}s -e START_RATE=${startRate} -e TARGET_RATE=${targetRate} -e TARGET_BASE_URL=${targetBaseUrl}</command>
                             </eventConfig>
 
                         </eventConfigs>
