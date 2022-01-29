@@ -213,7 +213,7 @@
                 <perfanaEnabled>true</perfanaEnabled>
                 <testRunId>${systemUnderTest}-${version}-${workload}-${testEnvironment}-${build.timestamp}</testRunId>
                 <eventsEnabled>true</eventsEnabled>
-                <tags>k6</tags>
+                <tags>k6,load-test,micro-service</tags>
             </properties>
         </profile>
 
