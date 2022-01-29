@@ -23,7 +23,7 @@ pipeline {
 
                 script {
 
-                    git url: params.gatlingRepo, branch: master
+                    git url: params.gatlingRepo, branch: 'master'
 
                 }
 
