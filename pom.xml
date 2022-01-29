@@ -175,7 +175,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <testEnvironment>k6-acc</testEnvironment>
+                <testEnvironment>acc</testEnvironment>
             </properties>
         </profile>
 
