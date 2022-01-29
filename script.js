@@ -22,8 +22,7 @@ const BASE_URL = __ENV.TARGET_BASE_URL;
 const SLEEP_DURATION = 0.1;
 // Global variables should be initialized.
 
-export const options = {
-};
+
 
 export const options = {
     discardResponseBodies: true,
