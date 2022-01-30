@@ -99,7 +99,7 @@
                         <continueOnEventCheckFailure>true</continueOnEventCheckFailure>
                         <eventConfigs>
                             <eventConfig implementation="io.perfana.events.commandrunner.CommandRunnerEventConfig">
-                                <name>CommandRunnerEventSleep1</name>
+                                <name>K6Runner</name>
                                 <command>k6 run script.js --out influxdb=${influxDbUrl} -e CONSTANT_LOAD_TIME=${duration}s -e RAMPUP_TIME=${rampUpTime}s -e START_RATE=${startRate} -e TARGET_RATE=${targetRate} -e TARGET_BASE_URL=${targetBaseUrl} -e SYSTEM_UNDER_TEST=${systemUnderTest} -e TEST_ENVIRONMENT=${testEnvironment}</command>
                             </eventConfig>
                             <eventConfig implementation="io.perfana.event.PerfanaEventConfig">
