@@ -44,7 +44,7 @@
         <constantLoadTimeInSeconds>900</constantLoadTimeInSeconds>
 
         <!-- Settings for the Perfana Dashboard -->
-        <systemUnderTest>OptimusPrime</systemUnderTest>
+        <systemUnderTest>BumbleBee</systemUnderTest>
         <version>1.0</version>
         <tags></tags>
 
