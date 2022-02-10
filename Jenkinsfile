@@ -6,11 +6,11 @@ pipeline {
    agent any
 
     parameters {
-        string(name: 'system_under_test', defaultValue: 'OptimusPrime', description: 'Name used as System Under Test in Perfana')
+        string(name: 'system_under_test', defaultValue: 'BumbleBee', description: 'Name used as System Under Test in Perfana')
         string(name: 'gatlingRepo', defaultValue: 'https://github.com/perfana/perfana-k6-afterburner.git', description: 'Gatling git repository')
         choice(name: 'workload', choices: ['test-type-load', 'test-type-stress', 'test-type-slow-backend', 'test-type-cpu'], description: 'Workload profile to use in your Gatling script')
         string(name: 'annotations', defaultValue: '', description: 'Add annotations to the test run, these will be displayed in Perfana')
-        string(name: 'targetBaseUrl', defaultValue: 'http://optimus-prime-fe:8080', description: 'Target Url')
+        string(name: 'targetBaseUrl', defaultValue: 'http://bumble-bee-fe:8080', description: 'Target Url')
         booleanParam(name: 'kubernetes', defaultValue: false, description: 'Run in Kubernetes')
 
     }
