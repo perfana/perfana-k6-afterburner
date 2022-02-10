@@ -108,7 +108,9 @@
                                 <perfanaUrl>${perfanaUrl}</perfanaUrl>
                                 <apiKey>${apiKey}</apiKey>
                                 <assertResultsEnabled>${assertResultsEnabled}</assertResultsEnabled>
-                                <variables></variables>
+                                <variables>
+                                    <perfana-containers>.*mariadb.*|.*bumble-bee-fe.*</perfana-containers>
+                                </variables>
                                 <testConfig>
                                     <systemUnderTest>${systemUnderTest}</systemUnderTest>
                                     <version>${version}</version>
