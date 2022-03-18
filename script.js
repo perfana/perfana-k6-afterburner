@@ -24,7 +24,7 @@ const firstNames = new SharedArray('another data name', function () {
 });
 
 const BASE_URL = __ENV.TARGET_BASE_URL;
-
+const testRunId = __ENV.TEST_RUN_ID;
 // Sleep duration between successive requests.
 // You might want to edit the value of this variable or remove calls to the sleep function on the script.
 const SLEEP_DURATION = 0.1;
@@ -101,10 +101,15 @@ export default function() {
     group("/mind-my-business-s", () => {
         let duration = '250'; // specify value as there is no example value for this parameter in OpenAPI spec
 
+        const params1 = {
+            headers: {
+              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=/mind-my-business-s`,
+            },
+        };
         // Request No. 1
         {
             let url = BASE_URL + `/mind-my-business-s?duration=${duration}`;
-            let request = http.get(url);
+            let request = http.get(url, params1);
 
             check(request, {
                 "OK": (r) => r.status === 200
@@ -148,10 +153,15 @@ export default function() {
     group("/delay", () => {
         let duration = '350'; // specify value as there is no example value for this parameter in OpenAPI spec
 
+         const params2 = {
+            headers: {
+              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=/delay,
+            },
+        };
         // Request No. 1
         {
             let url = BASE_URL + `/delay?duration=${duration}`;
-            let request = http.get(url);
+            let request = http.get(url, params2);
 
             check(request, {
                 "OK": (r) => r.status === 200
@@ -159,13 +169,21 @@ export default function() {
         }
     });
 
+    
+    
     group("/secured-delay", () => {
         let duration = '200'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        const params = {
+            headers: {
+              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=//secured-delay`,
+            },
+       };
 
         // Request No. 1
         {
             let url = BASE_URL + `/secured-delay?duration=${duration}`;
-            let request = http.get(url);
+            let request = http.get(url, params);
 
             check(request, {
                 "OK": (r) => r.status === 200
