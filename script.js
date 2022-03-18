@@ -155,7 +155,7 @@ export default function() {
 
          const params2 = {
             headers: {
-              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=/delay,
+              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=/delay`,
             },
         };
         // Request No. 1
@@ -176,7 +176,7 @@ export default function() {
 
         const params = {
             headers: {
-              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=//secured-delay`,
+              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=/secured-delay`,
             },
        };
 
