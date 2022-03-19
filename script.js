@@ -103,7 +103,8 @@ export default function() {
 
         const params1 = {
             headers: {
-              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=/mind-my-business-s`,
+              'perfana-test-run-id': `${testRunId}`,
+              'perfana-request-name': '/mind-my-business-s'
             },
         };
         // Request No. 1
@@ -155,7 +156,8 @@ export default function() {
 
          const params2 = {
             headers: {
-              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=/delay`,
+              'perfana-test-run-id': `${testRunId}`,
+              'perfana-request-name': '/delay'
             },
         };
         // Request No. 1
@@ -176,8 +178,9 @@ export default function() {
 
         const params = {
             headers: {
-              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=/secured-delay`,
-            },
+              'perfana-test-run-id': `${testRunId}`,
+              'perfana-request-name': '/secured-delay'
+            }
        };
 
         // Request No. 1
