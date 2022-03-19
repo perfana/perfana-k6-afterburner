@@ -103,8 +103,7 @@ export default function() {
 
         const params1 = {
             headers: {
-              'perfana-test-run-id': `${testRunId}`,
-              'perfana-request-name': '/mind-my-business-s'
+              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=/mind-my-business-s`,
             },
         };
         // Request No. 1
@@ -156,8 +155,7 @@ export default function() {
 
          const params2 = {
             headers: {
-              'perfana-test-run-id': `${testRunId}`,
-              'perfana-request-name': '/delay'
+              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=/delay`,
             },
         };
         // Request No. 1
@@ -178,9 +176,8 @@ export default function() {
 
         const params = {
             headers: {
-              'perfana-test-run-id': `${testRunId}`,
-              'perfana-request-name': '/secured-delay'
-            }
+              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=/secured-delay`,
+            },
        };
 
         // Request No. 1
@@ -315,10 +312,16 @@ export default function() {
         let path = 'delay'; // specify value as there is no example value for this parameter in OpenAPI spec
         let count = '3'; // specify value as there is no example value for this parameter in OpenAPI spec
 
+         const params = {
+            headers: {
+              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=/remote/call-many`,
+            },
+       };
+
         // Request No. 1
         {
             let url = BASE_URL + `/remote/call-many?count=${count}&path=${path}`;
-            let request = http.get(url);
+            let request = http.get(url, params);
 
             check(request, {
                 "OK": (r) => r.status === 200
@@ -333,10 +336,16 @@ export default function() {
 
         let count = '1'; // specify value as there is no example value for this parameter in OpenAPI spec
 
+         const params = {
+            headers: {
+              'baggage': `perfana-test-run-id=${testRunId},perfana-request-name=/database`,
+            },
+       };
+
         // Request No. 1
         {
             let url = BASE_URL + `/remote/call-many?count=${count}&path=${path}`;
-            let request = http.get(url);
+            let request = http.get(url, params);
 
             check(request, {
                 "OK": (r) => r.status === 200
