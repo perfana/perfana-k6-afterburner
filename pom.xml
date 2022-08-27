@@ -110,7 +110,7 @@
                                 <apiKey>${apiKey}</apiKey>
                                 <assertResultsEnabled>${assertResultsEnabled}</assertResultsEnabled>
                                 <variables>
-                                    <perfana-containers>.*mariadb.*|.*bumble-bee-fe.*</perfana-containers>
+                                    <perfana-containers>.*mariadb.*|.*bumble-bee.*</perfana-containers>
                                 </variables>
                                 <testConfig>
                                     <systemUnderTest>${systemUnderTest}</systemUnderTest>
@@ -231,7 +231,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <testEnvironment>acc</testEnvironment>
+                <testEnvironment>acme</testEnvironment>
             </properties>
         </profile>
 
@@ -253,7 +253,7 @@
                 <perfanaEnabled>true</perfanaEnabled>
                 <testRunId>${systemUnderTest}-${version}-${workload}-${testEnvironment}-${build.timestamp}</testRunId>
                 <eventsEnabled>true</eventsEnabled>
-                <tags>k6,micro-service</tags>
+                <tags>k6,springboot-monitoring</tags>
             </properties>
         </profile>
 
@@ -271,7 +271,7 @@
                 <perfanaEnabled>true</perfanaEnabled>
                 <testRunId>${systemUnderTest}-${version}-${workload}-${testEnvironment}-${build.timestamp}</testRunId>
                 <eventsEnabled>true</eventsEnabled>
-                <tags>k6,load-test,micro-service</tags>
+                <tags>k6,load-test,springboot-monitoring</tags>
             </properties>
         </profile>
 
