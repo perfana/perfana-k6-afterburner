@@ -36,7 +36,7 @@ pipeline {
 
                 script {
 
-                    def perfanaUrl = "demo.perfana.cloud"
+                    def perfanaUrl = "my.perfana"
                     def influxDbPassword = env.INFLUXDB_PASSWORD
                     def elasticPassword = env.ELASTIC_PASSWORD
                     def perfanaApiKey = env.PERFANA_API_KEY
@@ -55,7 +55,7 @@ pipeline {
                     withKubeConfig( clusterName: 'acme', contextName: 'acme', credentialsId: 'kubeconfig-acme', namespace: 'acme') {
 
                         sh """
-                           ${mvnHome}/bin/mvn clean install -X -U event-scheduler:test -Ptest-env-demo,${params.workload},assert-results -Dsut-config=bumble-bee -DtestRunId=${testRunId} -DbuildResultsUrl=${buildUrl} -Dversion=${version} -DsystemUnderTest=${system_under_test} -Dannotations="${params.annotations}" -DapiKey=${perfanaApiKey} -DtargetBaseUrl=${targetBaseUrl} -DinfluxUrl=https://influxdb.${perfanaUrl}/myk6db -DinfluxUser=admin -DinfluxPassword=${influxDbPassword} -DelasticPassword=${elasticPassword} -DperfanaUrl=https://${perfanaUrl}
+                           ${mvnHome}/bin/mvn clean install -X -U event-scheduler:test -Ptest-env-demo,${params.workload},assert-results -Dsut-config=bumble-bee -DtestRunId=${testRunId} -DbuildResultsUrl=${buildUrl} -Dversion=${version} -DsystemUnderTest=${system_under_test} -Dannotations="${params.annotations}" -DapiKey=${perfanaApiKey} -DtargetBaseUrl=${targetBaseUrl} -DinfluxUrl=https://influxdb/myk6db -DinfluxUser=admin -DinfluxPassword=${influxDbPassword} -DelasticPassword=${elasticPassword} -DperfanaUrl=https://${perfanaUrl}
                         """
                     }
 
