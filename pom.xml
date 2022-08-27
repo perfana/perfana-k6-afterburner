@@ -17,7 +17,8 @@
         <test-events-command-runner.version>1.0.1</test-events-command-runner.version>
         <perfana-java-client.version>2.0.1</perfana-java-client.version>
         <test-events-wiremock.version>1.1.1</test-events-wiremock.version>
-
+        <test-events-springboot.version>1.0.1-SNAPSHOT</test-events-springboot.version>
+        <test-events-test-run-config-command.version>1.0.0-SNAPSHOT</test-events-test-run-config-command.version>
         <!-- Perfana url  -->
         <perfanaUrl>http://perfana:3000</perfanaUrl>
         <wiremockUrl>http://wiremock:8080</wiremockUrl>
@@ -180,6 +181,16 @@
                         <groupId>io.perfana</groupId>
                         <artifactId>perfana-java-client</artifactId>
                         <version>${perfana-java-client.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>io.perfana</groupId>
+                        <artifactId>test-events-springboot</artifactId>
+                        <version>${test-events-springboot.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>io.perfana</groupId>
+                        <artifactId>test-events-test-run-config-command</artifactId>
+                        <version>${test-events-test-run-config-command.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
