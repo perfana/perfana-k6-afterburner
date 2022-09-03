@@ -271,7 +271,7 @@
                 <perfanaEnabled>true</perfanaEnabled>
                 <testRunId>${systemUnderTest}-${version}-${workload}-${testEnvironment}-${build.timestamp}</testRunId>
                 <eventsEnabled>true</eventsEnabled>
-                <tags>k6,load-test,springboot-monitoring</tags>
+                <tags>k6,springboot-monitoring</tags>
             </properties>
         </profile>
 
@@ -296,7 +296,7 @@
                     PT4M|wiremock-change-delay(delay=12000)|delay=12000
                     PT5M|wiremock-change-delay(delay=400)|delay=400
                 </eventScheduleScript>
-                <tags>load-test,perfana-demo-host</tags>
+                <tags>perfana-demo-host</tags>
             </properties>
         </profile>
 
