@@ -13,7 +13,7 @@
         <encoding>UTF-8</encoding>
 
         <!-- dependency versioning -->
-        <events-scheduler-maven-plugin.version>2.0.0</events-scheduler-maven-plugin.version>
+        <events-scheduler-maven-plugin.version>2.1.0-SNAPSHOT</events-scheduler-maven-plugin.version>
         <test-events-command-runner.version>1.0.1</test-events-command-runner.version>
         <perfana-java-client.version>2.0.5-SNAPSHOT</perfana-java-client.version>
         <test-events-wiremock.version>1.1.1</test-events-wiremock.version>
