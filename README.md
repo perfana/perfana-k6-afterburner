@@ -12,11 +12,11 @@ The input is the OpenAPI spec from Afterburner.
 
 Added to the K6 script are a csv reader to call the employee database with a list of different names.
 
-Requests also have added baggage headers for distributed tracing.
+Requests also have added baggage tag to the HTTP headers to be used in distributed tracing.
 
 The script fetches several values from environment variables, such as `TARGET_BASE_URL` and `TEST_RUN_ID`.
 
-The script pushes test metrics to influxdb by specifying `--out influxdb=${influxUrl` in the `CommandRunner` config
+The script pushes test metrics to influxdb by specifying `--out influxdb=${influxUrl}` in the `CommandRunner` config
 and supplying the username and password for influx. 
 
 The `pom.xml` shows how the K6 script is used within the Perfana event-scheduler eco system.
